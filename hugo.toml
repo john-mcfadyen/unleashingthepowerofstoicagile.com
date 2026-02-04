@@ -1,0 +1,31 @@
+baseURL = 'https://unleashingthepowerofstoicagile.com/'
+languageCode = 'en-us'
+title = 'Unleashing the Power of Stoic Agile'
+theme = 'stoicagile'
+
+[params]
+  description = 'Integrating ancient Stoic wisdom with modern Agile practices to build resilient teams and better products.'
+  author = 'John McFadyen'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 20
+  [[menu.main]]
+    name = 'About'
+    url = '/#about'
+    weight = 30
+  [[menu.main]]
+    name = 'Contact'
+    url = '/#contact'
+    weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

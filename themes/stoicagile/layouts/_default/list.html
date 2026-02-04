@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <header
+            style="height: auto; padding: 0; background: none; box-shadow: none; backdrop-filter: none; position: static; display: block; margin-bottom: 4rem; text-align: center;">
+            <h1>The Stoic Agile Blog</h1>
+            <p style="font-size: 1.25rem; color: var(--text-light);">Insights on Agile, Stoicism, and Building Resilient
+                Organizations.</p>
+        </header>
+
+        <div class="card-grid">
+            {{ range .Paginator.Pages }}
+            <a href="{{ .RelPermalink }}" class="card">
+                <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Summary | truncate 200 }}</p>
+            </a>
+            {{ end }}
+        </div>
+
+        <div style="margin-top: 4rem;">
+            {{ template "_internal/pagination.html" . }}
+        </div>
+    </div>
+</section>
+{{ end }}

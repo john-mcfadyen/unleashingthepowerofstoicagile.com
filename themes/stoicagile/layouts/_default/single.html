@@ -1,0 +1,50 @@
+{{ define "main" }}
+<article class="container" style="max-width: 800px;">
+    <header
+        style="height: auto; padding: 0; background: none; box-shadow: none; backdrop-filter: none; position: static; display: block; margin-bottom: 3rem;">
+        <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+        <h1 style="font-size: 3rem; line-height: 1.2;">{{ .Title }}</h1>
+        {{ with .Params.author }}
+        <p class="post-meta">By {{ . }}</p>
+        {{ end }}
+    </header>
+
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
+        <a href="/blog/">&larr; Back to Blog</a>
+    </div>
+</article>
+
+<style>
+    .content h2,
+    .content h3 {
+        margin-top: 2.5rem;
+    }
+
+    .content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    .content ul,
+    .content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        margin-bottom: 0.5rem;
+    }
+
+    .content blockquote {
+        border-left: 4px solid var(--accent);
+        padding-left: 1.5rem;
+        font-style: italic;
+        color: var(--text-light);
+        margin: 2rem 0;
+    }
+</style>
+{{ end }}
