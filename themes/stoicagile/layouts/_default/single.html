@@ -1,49 +1,75 @@
 {{ define "main" }}
-<article class="container" style="max-width: 800px;">
-    <header
-        style="height: auto; padding: 0; background: none; box-shadow: none; backdrop-filter: none; position: static; display: block; margin-bottom: 3rem;">
-        <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
-        <h1 style="font-size: 3rem; line-height: 1.2;">{{ .Title }}</h1>
-        {{ with .Params.author }}
-        <p class="post-meta">By {{ . }}</p>
-        {{ end }}
-    </header>
+<article class="section">
+    <div class="container" style="max-width: 800px;">
+        <header style="margin-bottom: 3rem; text-align: center;">
+            <div class="post-meta" style="font-size: 1.125rem; margin-bottom: 1rem;">{{ .Date.Format "January 2, 2006"
+                }} | By {{ .Site.Params.author }}</div>
+            <h1 style="font-size: 3rem; margin-bottom: 2rem;">{{ .Title }}</h1>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                {{ range .Params.keywords }}
+                <span
+                    style="background: var(--bg-alt); padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; color: var(--text-muted);">#{{
+                    . }}</span>
+                {{ end }}
+            </div>
+        </header>
 
-    <div class="content">
-        {{ .Content }}
-    </div>
+        <div class="content post-content">
+            {{ .Content }}
+        </div>
 
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
-        <a href="/blog/">&larr; Back to Blog</a>
+        <footer
+            style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; background: none; color: inherit; text-align: left;">
+            <p style="margin-bottom: 2rem; font-weight: 600;">Share this article:</p>
+            <div style="display: flex; gap: 1rem;">
+                <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" class="button"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem;">Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" class="button"
+                    style="padding: 0.5rem 1rem; font-size: 0.875rem;">LinkedIn</a>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="/blog/" style="color: var(--accent); text-decoration: none; font-weight: 600;">&larr; Back to
+                    all articles</a>
+            </div>
+        </footer>
     </div>
 </article>
 
 <style>
-    .content h2,
-    .content h3 {
-        margin-top: 2.5rem;
+    .post-content h2 {
+        margin: 3rem 0 1.5rem;
+        font-size: 2rem;
     }
 
-    .content p {
+    .post-content h3 {
+        margin: 2rem 0 1rem;
+        font-size: 1.5rem;
+    }
+
+    .post-content p {
         margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #334155;
+    }
+
+    .post-content ul,
+    .post-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
         font-size: 1.125rem;
     }
 
-    .content ul,
-    .content ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-    }
-
-    .content li {
-        margin-bottom: 0.5rem;
-    }
-
-    .content blockquote {
+    .post-content blockquote {
         border-left: 4px solid var(--accent);
         padding-left: 1.5rem;
         font-style: italic;
-        color: var(--text-light);
+        color: var(--text-muted);
         margin: 2rem 0;
     }
 </style>
