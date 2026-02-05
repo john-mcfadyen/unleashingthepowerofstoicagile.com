@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
+
 <body>
   <header>
     <a href="/" class="logo">Stoic Agile</a>
@@ -34,10 +38,11 @@
       <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
       <p>Integrating Stoicism and Agile.</p>
       <div style="margin-top: 1rem;">
-        <a href="https://linkedin.com/in/johnmcfadyen" target="_blank">LinkedIn</a> | 
+        <a href="https://linkedin.com/in/johnmcfadyen" target="_blank">LinkedIn</a> |
         <a href="mailto:john.mcfadyen@agilecentre.com">Email</a>
       </div>
     </div>
   </footer>
 </body>
+
 </html>
